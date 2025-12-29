@@ -1,0 +1,72 @@
+/* ================================
+   MOBILE COLLECTION ICONS
+================================ */
+
+/* HIDE ON DESKTOP */
+@media (min-width: 768px) {
+  .mobile-product-collections {
+    display: none;
+  }
+}
+
+/* SECTION */
+.mobile-product-collections {
+  background: #000000;
+  padding: 10px 0;
+}
+
+/* WRAPPER */
+.mpc-wrapper {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 0 14px;
+  scrollbar-width: none;
+}
+
+.mpc-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* ITEM */
+.mpc-item {
+  flex: 0 0 auto;
+  text-align: center;
+  text-decoration: none;
+  width: 80px; /* controls text wrapping */
+}
+
+/* ICON */
+.mpc-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* IMAGE */
+.mpc-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TEXT – 2 LINE CLAMP */
+.mpc-item span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+}
