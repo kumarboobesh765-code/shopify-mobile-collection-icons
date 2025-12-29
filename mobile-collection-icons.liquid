@@ -1,0 +1,66 @@
+{% comment %}
+  Mobile Collection Icons
+  Shows only on Product & Collection pages
+{% endcomment %}
+
+{% if template.name == 'product' or template.name == 'collection' %}
+
+{{ 'mobile-collection-icons.css' | asset_url | stylesheet_tag }}
+
+<section class="mobile-product-collections">
+  <div class="mpc-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.collection != blank %}
+        <a href="{{ block.settings.collection.url }}" class="mpc-item">
+          <div class="mpc-icon">
+            {% if block.settings.image != blank %}
+              <img
+                src="{{ block.settings.image | image_url: width: 160 }}"
+                alt="{{ block.settings.collection.title }}"
+                loading="lazy">
+            {% elsif block.settings.collection.image != blank %}
+              <img
+                src="{{ block.settings.collection.image | image_url: width: 160 }}"
+                alt="{{ block.settings.collection.title }}"
+                loading="lazy">
+            {% endif %}
+          </div>
+          <span>{{ block.settings.collection.title }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "Mobile Collection Icons",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Icon (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Mobile Collection Icons"
+    }
+  ]
+}
+{% endschema %}
